@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -53,7 +53,7 @@ namespace AutomaticSharp.Requests
             if (EndedAfter.HasValue)
                 parameters.Add("ended_at__gte", (EndedAfter.Value.ToUniversalTime() - new DateTime(1970, 1, 1)).TotalSeconds.ToString(CultureInfo.InvariantCulture));
 
-            if (string.IsNullOrEmpty(VehicleId))
+            if (!string.IsNullOrEmpty(VehicleId))
                 parameters.Add("vehicle", VehicleId);
 
             if (Tags != null && Tags.Any())
